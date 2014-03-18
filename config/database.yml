@@ -1,0 +1,18 @@
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: rainydae-api_development
+  pool: 5
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: rainydae-api_test
+  pool: 5
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: rainydae-api_production
+  pool: 5
