@@ -19,7 +19,11 @@ class CheckoutsController < ApplicationController
       )
 
     # @checkout = Checkout.new(checkout_params)
-    @checkout.save
+    if @checkout.save
+      PurchaseMailer.thank_you(@checkout.id).deliver
+    else
+
+    end
     render "show"
   end
 
