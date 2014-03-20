@@ -8,14 +8,22 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(params.require(:product).permit(:name, :price, :description, :image, :avatar))
+    @product = Product.new(params.require(:product).permit(:name,
+                                                           :price,
+                                                           :description,
+                                                           :image,
+                                                           :avatar))
     @product.save
     render "show"
   end
 
   def update
     @product = Product.find(params[:id])
-    @product.update(params.require(:product).permit(:name, :price, :description, :image, :avatar))
+    @product.update(params.require(:product).permit(:name,
+                                                    :price,
+                                                    :description,
+                                                    :image,
+                                                    :avatar))
     render "show"
   end
 
