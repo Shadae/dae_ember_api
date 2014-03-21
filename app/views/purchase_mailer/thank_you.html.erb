@@ -12,19 +12,17 @@
     <th>Quantity</th>
     <th>Unit Price</th>
   </tr>
-    {{# each cart.items }}
     <tr>
       <td>
-        {{# link-to "product" this.product }}
-          <img {{ bind-attr src=this.product.image }} height="50" width="50">
-          {{ product.name }}
-        {{/ link-to }}
-      <td>{{ quantity }}</td>
-      <td>${{ to_dollars subtotal }}</td>
+       <% @checkout.cart.items.each do |item| %>
+    <tr>
+      <td><%= item.product.name %></td>
+      <td><%= item.quantity %></td>
+      <td>$<%= (item.quantity * item.price) / 100 %></td>
     </tr>
-  {{/ each }}
+  <% end %>
 </table>
 
-<strong>Order Total:</strong> ${{ to_dollars cart.total }}
+<strong>Order Total:</strong>
 
 

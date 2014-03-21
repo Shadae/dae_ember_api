@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
       cart_id: item_params[:cart],
       product_id: item_params[:product],
       quantity: item_params[:quantity],
-      # price: item_params[:subtotal]
+      price: item_params[:price]
     )
     render 'show'
   end
