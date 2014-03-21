@@ -7,6 +7,12 @@ class CheckoutsController < ApplicationController
     @checkout = Checkout.find(checkout_params[:id])
   end
 
+  def update
+    @checkout = Checkout.find(params[:id])
+    @checkout.update(params.require(:checkout).permit(:cart, :name, :email, :zip, :expiration, :status, :cvv))
+    render "index"
+  end
+
   def create
     @checkout = Checkout.create(
       cart_id: checkout_params[:cart],
